@@ -1,5 +1,34 @@
+# Распаковка и очистка
 unzip "archive_name.zip"
 rm -rf __MACOSX
+
+# Создание репозитория
 cd "Site For Import"
 git init
-nano .gitignore
+
+# Создание .gitignore
+cat > .gitignore << EOF
+# Временная папка
+tmp/
+
+# Файлы с суффиксами _old и _backup
+*_old
+*_backup
+
+# Системные файлы
+Thumbs.db
+.DS_Store
+
+# Дополнительные системные файлы
+*.log
+.cache/
+EOF
+
+# Коммит
+git add .
+git commit -m "Initial commit: import landing page with proper .gitignore"
+
+# Подключение к GitHub
+git remote add origin https://github.com/ВАШ_ЛОГИН/НАЗВАНИЕ_РЕПОЗИТОРИЯ.git
+git branch -M main
+git push -u origin main
