@@ -1,1 +1,5 @@
 unzip "archive_name.zip"
+rm -rf __MACOSX
+cd "Site For Import"
+git init
+nano .gitignore
